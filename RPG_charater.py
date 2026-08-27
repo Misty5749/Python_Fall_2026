@@ -19,6 +19,6 @@ multiplier = 1.25
 rage = True
 
 # player
-print(f" {stats}")
-print(f" {quantity}")
-print(f" {rage} " f" {multiplier}")
+print(f"Stats: {stats}")
+print(f"Points: {quantity}")
+print(f"In Rage: {rage} " f"Multiplier: {multiplier}")

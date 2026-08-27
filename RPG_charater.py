@@ -12,13 +12,13 @@ ASSIGNMENT REQUIREMENTS (DO NOT DELETE)
 -----------------------------------------------------------------------
 """
 
-# shop
-item_name = "Arrows"
-quantity = 100
-cost = 0.99
-in_shop = True
+# shops
+stats = "Strength"
+quantity = 7
+multiplier = 1.25
+rage = True
 
 # player
-print(f"In stock: {in_shop}")
-print(f"Item: {item_name}")
-print(f"Amount: {quantity} " f"cost: {cost}")
+print(f" {stats}")
+print(f" {quantity}")
+print(f" {rage} " f" {multiplier}")

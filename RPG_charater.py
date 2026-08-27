@@ -12,13 +12,15 @@ ASSIGNMENT REQUIREMENTS (DO NOT DELETE)
 -----------------------------------------------------------------------
 """
 
-# shops
+# Stat sheet
 stats = "Strength"
-quantity = 7
+quantity = 10
 multiplier = 1.25
 rage = True
+total = quantity * multiplier
 
-# player
+# player info
 print(f"Stats: {stats}")
 print(f"Points: {quantity}")
 print(f"In Rage: {rage} " f"Multiplier: {multiplier}")
+print(f"total strength: {total}")

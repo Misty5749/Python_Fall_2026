@@ -13,14 +13,19 @@ ASSIGNMENT REQUIREMENTS
 
 # user's monthly expenses
 name = input("Enter name: ")
-income = input("Enter monthly income: ")
-rent = input("Cost of rent monthly: ")
-utilities = input("Cost of utilities monthly: ")
-food = input("Cost of food monthly: ")
-hobbies = input("Cost of hobbies monthly: ")
-gas = input("Cost of gas monthly: ")
-col_rent = "rent"
+gross_income = float(input("Enter monthly gross income: "))
+rent = float(input("Cost of rent monthly: "))
+utilities = float(input("Cost of utilities monthly: "))
+food = float(input("Cost of food monthly: "))
+hobbies = float(input("Cost of hobbies monthly: "))
+gas = float(input("Cost of gas monthly: "))
 
 
-# user's total expenses
-print(f"{col_rent:^40}")
+# user's total income
+fed_tax = gross_income * 0.20
+net_income = gross_income - fed_tax
+
+#table of expenses
+print(f"Gross Income: ${gross_income,.2%}")
+print(f"Net Income: ${net_income,.2%}")
+print(f"Income after rent: ${net_income - rent,.2%}")

@@ -25,5 +25,13 @@ gas = float(input("Cost of gas monthly: "))
 total_expenses = rent + utilities + food + hobbies + gas
 
 # table of expenses
-print(f"Net Income: ${income_net:,.2f}")
-# print(f"Total Expenses"
+print(f"\n\n\nNet Income: ${income_net:,.2f}")
+print(
+    f"Total Expenses ${total_expenses:,.2f} \t total amount left over: ${(income_net - total_expenses):,.2f}"
+)
+print(f"Percent of money used: {(total_expenses / income_net):,.2f}%\n")
+print(f"Rent: ${rent:,.2f}")
+print(f"Utilities: ${utilities:,.2f}")
+print(f"Food: ${food:,.2f}")
+print(f"Hobbies: ${hobbies:,.2f}")
+print(f"Gas: ${gas:,.2f}")

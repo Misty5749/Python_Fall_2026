@@ -12,8 +12,19 @@ ASSIGNMENT REQUIREMENTS
 """
 
 # This program is about when people should sleep to hit their sleep target
-sleep_amount = float(print("how many hours do you want to sleep: "))
-wake_up = float(print("when do you want to wake up (numbers only): "))
-sleep_time = float(print("when do you want to fall asleep (numbers only): "))
+sleep_desired = int(input("when do you want to wake up (numbers only): "))
+sleep_actual = int(input("how many hours of sleep did you get (numbers only): "))
 
-if sleep_amount >= wake_up
+
+if sleep_desired >=8 and sleep_actual >= 8:
+    print("perfect amount of sleep")
+else:
+    print("your sleep desires and actual sleep are not the same.")
+if sleep_desired > sleep_actual:
+    print("you should go to sleep earlier")
+else:
+    print("Good job but you can sleep in later or wake up later")
+if sleep_desired >= 8 or sleep_actual >=8:
+    print("you should get both to 8 hours of sleep")
+else sleep_desired == 0 or sleep_actual == 0:
+    print("you should sleep more")

@@ -24,8 +24,10 @@ while driving:
 
 # task 2 (99 bottles of beer)
 # counts down from 99 to 1 and sends one line for every time it goes down
-for count in range(99, 1, -1):
-    if count == 1:
-        print(f"{count} bottles of beer on the wall. Take one and pass it around\n")
+for count in range(99, 0, -1):
+    if (
+        count == 1
+    ):  # makes sure that once it hits 1 it will say 1 bottle instead of 1 bottles
+        print(f"{count} bottle of beer on the wall. Take one and pass it around\n")
     else:
         print(f"{count} bottles of beer on the wall. Take one and pass it around\n")

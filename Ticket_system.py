@@ -16,12 +16,12 @@ try:
     tickets = 1
     while more_tickets:
         try:
-            extra_tickets = input("Would you like more than 1 tickets (Y/N)").upper()
+            extra_tickets = input("Would you like more than 1 tickets (Y/N): ").upper()
             if extra_tickets == "Y":
                 tickets = int(input("how many tickets would you like: "))
-                if tickets <= 0:
+                if tickets <= 0:  # prevents 0 tickets
                     print("Must be more than 1 ticket")
-                else:
+                else:  # anything more than 1 ticket
                     print(f"Placed {tickets} tickets.")
                     more_tickets = False
             elif extra_tickets == "N":
@@ -31,7 +31,7 @@ try:
                 print("Please enter Y or N")
         except ValueError:
             print("error, ticket amount is not an integer")
-
+    # loops the code for how many times there are tickets the user wants
     for ticket_number in range(tickets):
         ticket_number = ticket_number + 1
         print(f"ticket number {ticket_number}")
@@ -45,6 +45,7 @@ try:
                     break
                 else:
                     print("you can't get a drink ticket")
+                    # anything under 21
                     break
             except ValueError:
                 print("error, age is not an integer")
@@ -56,6 +57,7 @@ try:
                 first_name = input("input first name for ticket: ")
                 last_name = input("input last name for ticket: ")
                 if first_name == "" or last_name == "":
+                    # makes sure there is a name for the tickets
                     print("please input a name")
                 else:
                     print(f"hello {first_name} {last_name}")
@@ -67,8 +69,9 @@ try:
         # False is when the user inputs a phone number
         while True:
             try:
-                phone = input(f"can i get a phone number {first_name} (altogether)")
+                phone = input(f"can i get a phone number {first_name} (ex 1234567890)")
                 if phone == "":
+                    # makes sure there is a phone number
                     print("Please enter in a phone number")
                 elif phone.isdigit():
                     # asked copilot if there was a way to see if the user inputs a number or a letters/word

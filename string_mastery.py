@@ -22,9 +22,9 @@ print(f"highest ASCII letter {max(instrument)}")
 # TODO: Use min() and max() to find and print the lowest and highest ASCII characters
 # --- TASK 2: THE CLEANUP CREW 🎸 ---
 messy_input = " vOLUME_knob_11 "
-messy_input.strip()
-messy_input.replace("_", " ")
-input = messy_input.upper()
+messy_input = messy_input.strip()
+messy_input = messy_input.replace("_", " ")
+fixed_input = messy_input.upper()
 print(input)
 # TODO: Use .strip() to remove spaces
 # TODO: Use .upper() to capitalize everything
@@ -50,7 +50,7 @@ for char in name_string:
     print(f"{current_name}) \n" * 3)
     print("and Ducky was his Name-o!\n")
     duck_letters[count] = "🎸"
-    count = +1
+    count += 1
 
 final_name = " ".join(duck_letters)
 print(f"Finale: {final_name}")

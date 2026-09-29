@@ -34,32 +34,52 @@ while True:
         choice = int(input("Please select which one you want to go to: "))
         match choice:
             case 1:
-                lookup = input("input a username").upper()
+                lookup = input("input a username: ").upper()
                 try:
-                    lookup == 
+                    for username in USER_NAMES:
+                        if username == lookup:
+                            print("Username found:", username)
+                            break
+                        else:
+                            print("Username was not found.")
+                            break
                 except ValueError:
                     print("Username was not found.")
                 except IndexError:
-                    print("That user index does not exist.")  
+                    print("That user index does not exist.")
             case 2:
-                lookup = input("input a username").upper()
+                lookup = input("input a username: ").upper()
+                count = 0
+                found = False
                 try:
-                    index = USER_NAMES.index(lookup)
-                    passwords[index] = input("enter a new password: ")
-                    print("Password updated")
+                    for username in USER_NAMES:
+                        if username == lookup:
+                            found = True
+                            old_password = input("Enter in your old password: ")
+                            # makes sure a random person can't change the password
+                            if passwords[count] == old_password:
+                                passwords[count] = input("Enter a new password: ")
+                                print("Password updated")
+                                break
+                            else:
+                                print("Incorrect password, contact IT desk for help")
+                                break
+                        count += 1
+                    if found == False:
+                        print("Username wasn't found")
 
                 except ValueError:
                     print("Username was not found.")
                 except IndexError:
                     print("That user index does not exist.")
             case 3:
-                admin = input("Are you a admin (Yes/No)").lower()
+                admin = input("Are you a admin (Yes/No): ").lower()
                 if admin == "yes":
                     try:
-                        index = int(input("enter in index user to change"))
+                        index = int(input("enter in index user to change: "))
                         print(USER_NAMES[index])
                         # shows the admin which username is selected
-                        USER_NAMES[index] = input("Enter in a new username")
+                        USER_NAMES[index] = input("Enter in a new username: ").upper()
                         # changes the username to the new one
                     except TypeError:
                         print("please contact the help desk to change User Name")

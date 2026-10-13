@@ -41,6 +41,15 @@ EMOJI_CIPHER = {
 }  # made by AI
 
 message = input("Enter secret message: ").upper()
+emoji_message = ""
+for character in message:
+    try:
+        # goes through every line until it matches with the letter and changes the cipher
+        print(EMOJI_CIPHER[character], end="")
+        # asked AI on how to have print on one line instead of multiple lines
+    except KeyError:
+        print(character, end="")
+
 
 # TODO: Loop through each character
 # TODO: try to print the emoji, except if it's a space or symbol

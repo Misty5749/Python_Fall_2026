@@ -18,7 +18,7 @@ FRUITS = ("Strawberry", "Banana", "Mango", "Blueberry")
 
 
 # TODO: Define get_price(size)
-def get_prices(size):
+def get_price(size):
     if size == "small":
         return 3.00
     elif size == "medium":
@@ -28,21 +28,25 @@ def get_prices(size):
 
 
 # selection for sizes
+def main():
+    try:
+        size = input(f"what size would you like {SIZES}: ").lower()
 
-while True:
-    size = input(f"what size would you like {SIZES}: ").lower()
-    size_confirmation = input("Is that size okay (yes/no): ").lower()
-    if size_confirmation == "yes":
-        break
-        # breaks the loop when user selects the correct size
-    elif size_confirmation == "no":
-        print("select another size")
-        # repeats back to the start to select a new size
+        amount_base = int(input(f"{BASES}\nHow many bases would you like: "))
+        base = input(f"what bases would you like: ")
 
+        amount_fruit = int(input(f"{FRUITS}\nHow many bases would you like: "))
+        fruits = input("what bases would you like: ")
+
+        scoops = int(input("how many scoops would you like: "))
+    except ValueError:
+        print("please enter in a number")
+
+
+main()
+def blend(size, base, fruit, scoops):
 # selects which bases and how many
 
-while True:
-    base = input(f"what bases would you like {BASES}: ")
 
 # selects which fruits and how many
 

@@ -33,7 +33,7 @@ def get_price(size):
         return 8.50
 
 
-def take_order():
+def take_order(chosen_toppings):
     """collects the amount of scoops, amount of toppings, which types of topping, and how much mixed"""
     # TODO: Get size, toppings and how much mixed
     name = input("Can i get a name for the order: ")
@@ -56,12 +56,18 @@ test_order = take_order()
 print(test_order)
 
 
-def calculate_total():
+def calculate_total(chosen_toppings):
     """gets the price of the total amount and including if they want more than 2 toppings"""
     # TODO get price from menu
-
+    if chosen_toppings <= 3:
+        more_total = chosen_toppings - 2
+    else:
+        more_total = 0
     pass
 
+
+test_total = calculate_total()
+print(test_total)
 
 # def customer_info():
 #     """sends data to order history and creates a label with a number (1-99). Creates a human readable label"""

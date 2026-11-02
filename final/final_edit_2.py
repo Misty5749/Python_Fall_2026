@@ -42,7 +42,7 @@ def get_price(size_choice):
     elif size_choice == 3:
         return 8.50
     else:
-        raise ValueError("Size must be 1, 2, or 3.")
+        print("Size must be 1, 2, or 3.")
 
 
 def take_order():

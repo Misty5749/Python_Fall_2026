@@ -1,0 +1,5 @@
+TOPPINGS : Plain, Hot Fudge, Sprinkles, Caramel Sauce, Oreos, Cookie Dough, Brownie,Strawberries, Bananas, Pecans, Whipped Cream, Cherries, Marshmallows, Peanut Butter Cups, Chocolate Chips
+SIZES : Small, Medium, Large
+PRICE : 5.5, 7.5, 8.5
+MIXED : Light, Medium, Heavy
+FLAVORS : Vanilla, Chocolate, Mint, Strawberries

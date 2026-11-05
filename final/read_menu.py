@@ -69,7 +69,7 @@ def print_mixed(mixed):
 
 
 def print_flavors(flavors):
-    print("F9lavors\n")
+    print("Flavors\n")
     count = 1
     flavors_item = flavors.split(", ")
     for item in flavors_item:

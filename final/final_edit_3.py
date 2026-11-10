@@ -1,11 +1,9 @@
 """
-ASSIGNMENT 9B: SPRINT 2 - FUNCTIONAL STUBS
+ASSIGNMENT 12B: SPRINT 2 - FUNCTIONAL STUBS
 Project: Bober Custard POS
 """
 
 import random  # from magic_8ball.py
-import datetime
-import os
 import read_menu
 
 """
@@ -16,36 +14,14 @@ things to do:
 4. add topping sections for easier use
 5. make the customer ticket better
 """
-TOPPINGS = (
-    "0. Plain",
-    "1. Hot fudge",
-    "2. Sprinkles",
-    "3. Caramel sauce",
-    "4. Crushed Oreos",
-    "5. Cookie dough bites",
-    "6. Brownie bites",
-    "7. Strawberries",
-    "8. Bananas",
-    "9. Chopped nuts",
-    "10. Whipped cream",
-    "11. Cherries",
-    "12. Mini marshmallows",
-    "13. Peanut butter cups",
-    "14. Chocolate chips",
-)
-# made above with AI
-SIZES = ("1. Small", "2. Medium", "3. Large")
-
-
-def get_price(size_choice):
-    if size_choice == 1:
-        return 5.50
-    elif size_choice == 2:
-        return 7.50
-    elif size_choice == 3:
-        return 8.50
-    else:
-        raise ValueError("Size must be 1, 2, or 3.")
+DATA_FILE = "order_history.txt"
+MENU_ITEMS = read_menu.read_menu() or {}
+MENU_VALUES = read_menu.split_into_variables(MENU_ITEMS)
+TOPPING_TEXT = MENU_VALUES[0] or ""
+SIZE_TEXT = MENU_VALUES[1] or ""
+PRICE_TEXT = MENU_VALUES[2] or ""
+MIXED_TEXT = MENU_VALUES[3] or ""
+FLAVOR_TEXT = MENU_VALUES[4] or ""
 
 
 def take_order():
@@ -53,19 +29,33 @@ def take_order():
     # TODO: Get size, toppings and how much mixed
     name = input("Can I get a name for the order: ")
 
+    sizes = []
+    for size in SIZE_TEXT.split(","):
+        size = size.strip()
+        if size != "":
+            sizes.append(size)
+
+    toppings = []
+    for topping in TOPPING_TEXT.split(","):
+        topping = topping.strip()
+        if topping != "" and topping.lower() != "plain":
+            toppings.append(topping)
+
+    read_menu.print_sizes(SIZE_TEXT, PRICE_TEXT)
+
     while True:
         try:
-            size_choice = int(input(f"{SIZES}\nPlease select a size (1, 2, or 3): "))
-            if size_choice in (1, 2, 3):
+            size_choice = int(input("\nPlease enter the number for your size: "))
+            if 1 <= size_choice <= len(sizes):
                 break
-            print("Please choose 1, 2, or 3.")
+            print(f"Please choose a number from 1 to {len(sizes)}.")
         except ValueError:
             print("Please enter a number.")
 
     chosen_toppings = []
     while True:
-        print(TOPPINGS)
-        toppings_length = len(TOPPINGS)
+        read_menu.print_toppings(",".join(toppings))
+        toppings_length = len(toppings)
         try:
             topping_choice = int(
                 input("Choose a topping number (0 for plain/finish): ")
@@ -73,7 +63,7 @@ def take_order():
             if topping_choice == 0:
                 break
             if 1 <= topping_choice <= toppings_length:
-                chosen_toppings.append(TOPPINGS[topping_choice - 1])
+                chosen_toppings.append(toppings[topping_choice - 1])
             else:
                 print(f"Please choose a number from 0 to {toppings_length}.")
         except ValueError:
@@ -92,24 +82,29 @@ def calculate_total(size_choice, chosen_toppings):
     return total
 
 
+def get_price(size_choice):
+    prices = PRICE_TEXT.split(",")
+    return float(prices[size_choice - 1].strip())
+
+
 def customer_info(name):
     """Create a short system label and a readable customer label."""
     order_number = random.randint(1, 99)
-    system_label = f"order-{order_number:02d}, {name}"
+    system_label = f"{order_number:02d}, {name}"
     customer_label = f"Customer {name}, number {order_number}"
     return system_label, customer_label
 
 
 def send_data(system_label, size_choice, chosen_toppings):
     """Print an organized ticket for the person making the custard."""
+    sizes = SIZE_TEXT.split(",")
     print("\n--- Custard Order ---")
     print(f"Order: {system_label}")
-    print(f"Base: {SIZES[size_choice - 1]}")
+    print(f"Base: {sizes[size_choice - 1].strip()}")
     print("Toppings:")
     if chosen_toppings:
         for topping in chosen_toppings:
-            # asked AI how to spilt the toppings into different rows
-            print(f"- {topping.split('. ', 1)[1]}")
+            print(f"- {topping}")
     else:
         print("- Plain")
 

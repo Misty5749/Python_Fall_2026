@@ -15,7 +15,6 @@ def read_menu():
                 category = parts_of_line[0].strip()
                 detail = parts_of_line[1].strip()
                 menus[category] = detail
-        print(f"Menus: {menus}")
         return menus
     except FileNotFoundError:
         print("Please create the file or check the file name.")
@@ -26,6 +25,7 @@ def read_menu():
         with open("error_log.txt", "a") as f:
             f.write(f"{right_now}, e")
         print(e)
+        return menus
 
 
 def split_into_variables(menu_items):

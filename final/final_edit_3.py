@@ -150,4 +150,5 @@ def main():
     print(f"Total: ${total:.2f}")
 
 
-main()
+if __name__ == "__main__":
+    main()

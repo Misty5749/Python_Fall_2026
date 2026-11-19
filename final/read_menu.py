@@ -80,10 +80,7 @@ def print_flavors(flavors):
 def main():
     menu_items = read_menu()
     toppings, sizes, prices, mixed, flavors = split_into_variables(menu_items)
-    print_toppings(toppings)
-    print_sizes(sizes, prices)
-    print_mixed(mixed)
-    print_flavors(flavors)
 
 
-main()
+if __name__ == "__main__":
+    main()
